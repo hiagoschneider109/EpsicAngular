@@ -1,0 +1,17 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()" novalidate style="border: double 1px black; padding: 10px">
+  <h2>Add User</h2><br>
+  <div class="form-group">
+    <input type="text" required #name=ngModel class="form-control form-control-lg" placeholder="Name"
+           name="nameUser" [(ngModel)]="userModel.name_User" [class.invalid]="name.invalid && name.touched">
+  </div>
+  <br>
+  <div class="form-group">
+    <input type="text" required #password=ngModel class="form-control form-control-lg" placeholder="Password"
+           name="password" [(ngModel)]="userModel.password" [class.invalid]="password.invalid && password.touched"
+           >
+  </div>
+  <br>
+  <div class="form-group">
+    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid" >SUBMIT</button>
+  </div>
+</form>

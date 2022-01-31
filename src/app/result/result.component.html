@@ -1,0 +1,42 @@
+
+<div>
+  <h2>List Grades</h2><br>
+  <label>Trier par Sujet :  </label>
+  <select name="userSelectBox" (change)="selectedSubject($event.target)">
+    <option></option>
+    <option *ngFor="let subj of subjects"  [value]="subj.id" >{{subj.subject}}</option>
+  </select>
+</div>
+<table class='table table-striped' aria-labelledby="tableLabel"  *ngIf="resultsBySubjectId">
+  <thead>
+  <tr>
+    <th>Results</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let result of resultsBySubjectId" >
+    <td>{{ result.num_Result }}</td>
+    <td>
+      <button type="button" class="btn btn-warning" (click)="onDelete(result.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<table class='table table-striped' aria-labelledby="tableLabel"  *ngIf="!resultsBySubjectId">
+  <thead>
+  <tr>
+    <th>Results</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let result of results" >
+    <td>{{ result.num_Result }}</td>
+    <td>
+      <button type="button" class="btn btn-warning" (click)="onDelete(result.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<app-result-form></app-result-form>

@@ -1,0 +1,21 @@
+
+<form #form="ngForm" (ngSubmit)="onSubmit()" style="border: double 1px black; padding: 10px">
+  <h2>List Grades</h2><br>
+  <div class="form-group">
+    <label>Subject: </label>
+    <select name="subjectSelectBox" (change)="selectedSubject($event.target)">
+      <option></option>
+      <option *ngFor="let subject of subjects"  [value]="subject.id" >{{subject.subject}}</option>
+    </select>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Grade :</label>
+    <input class="form-control form-control-lg" #numRes="ngModel" placeholder="Grade"
+           name="numResult" [(ngModel)]="resultModel.num_Result" [class.invalid]="numRes.invalid && numRes.touched">
+  </div>
+  <br>
+  <div class="form-group">
+    <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<h2>List Users</h2><br/>
+<table class='table table-striped' aria-labelledby="tableLabel"  >
+  <thead>
+  <tr>
+    <th>User</th>
+    <th>Subjects</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" >
+      <td>{{ user.name }}</td>
+      <div *ngFor="let subj of user.subjects">
+        <td>{{subj.subject}}</td>
+      </div>
+      <td >
+        <button type="button" class="btn btn-warning" (click)="onDelete(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-user-form></app-user-form>
+
+
